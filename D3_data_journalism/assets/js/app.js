@@ -1,4 +1,5 @@
 // @TODO: YOUR CODE HERE!
+//==============================
 var svgWidth = 960;
 var svgHeight = 500;
 
@@ -12,7 +13,9 @@ var margin = {
 var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
 
-// Create an SVG wrapper, append an SVG group that will hold our chart, and shift the latter by left and top margins.
+// Create an SVG wrapper, append an SVG group that will hold our chart, 
+//and shift the latter by left and top margins.
+//==============================
 var svg = d3.select("#scatter")
   .append("svg")
   .attr("width", svgWidth)
@@ -21,7 +24,8 @@ var svg = d3.select("#scatter")
 var chartGroup = svg.append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-// Import Data
+// Importing Data
+//==============================
 d3.csv("assets/data/data.csv").then(function(povertyData) {
 
     // Step 1: Parse Data/Cast as numbers
@@ -68,7 +72,7 @@ d3.csv("assets/data/data.csv").then(function(povertyData) {
     .attr("opacity", ".40");
 
     //Adding state abbraviations to circles
-
+    //==============================
     chartGroup.append("text")
         .style("text-anchor", "middle")
         .style("font-size", "10px")
@@ -113,6 +117,7 @@ d3.csv("assets/data/data.csv").then(function(povertyData) {
       });
 
     // Create axes labels
+    //==============================
     chartGroup.append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 0 - margin.left + 40)
